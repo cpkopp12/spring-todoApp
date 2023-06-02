@@ -9,9 +9,6 @@
 		<div>
 			name: ${name}
 		</div>
-		<div>
-			password: ${password}
-		</div>
 		
 	</body>
 </html>
