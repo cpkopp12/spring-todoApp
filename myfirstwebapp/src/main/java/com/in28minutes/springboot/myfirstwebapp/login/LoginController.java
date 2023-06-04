@@ -5,9 +5,11 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 @Controller
+@SessionAttributes("name")
 public class LoginController {
 	
 	private AuthenticationService authenticationService;
@@ -22,7 +24,7 @@ public class LoginController {
 	@RequestMapping(value="login", method = RequestMethod.GET)
 	public String loginJsp() {
 		
-		return "login";
+		return "loginPage";
 	}
 	
 	@RequestMapping(value="login", method=RequestMethod.POST)
@@ -32,11 +34,11 @@ public class LoginController {
 			
 			model.put("name", name);
 			
-			return "welcome";
+			return "welcomePage";
 		}
 		
 		model.put("errorMessage", "Invalid Credentials, please try again.");
 		
-		return "login";
+		return "loginPage";
 	}
 }
